@@ -68,10 +68,10 @@ __prompt_command() {
 
     venv="$(__python_venv_info)"
     if [ -n "$venv" ]; then
-        venv_info="${PURPLE}${venv}${WHITE}|"
+        venv_info=" ${PURPLE}[${venv}]"
     fi
 
-    PS1="${status_text}${venv_info} ${ucolor}\u@\h${WHITE}:${LIGHTBLUE}\w${git_info}${WHITE}: ${DEFAULT}"
+    PS1="${status_text} ${ucolor}\u@\h${WHITE}${venv_info} ${LIGHTBLUE}\w${git_info}${WHITE}: ${DEFAULT}"
     PS2="${ucolor}# ${WHITE}:${WHITE}\W${WHITE}\$ ${DEFAULT}"
 }
 
