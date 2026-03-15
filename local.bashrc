@@ -47,7 +47,7 @@ __prompt_command() {
         git_info="${MAGENTA}[${branch}]"
     fi
 
-    PS1="${status_text}${ucolor}\u@${ucolor}\h${WHITE}:${BLUE}\w${git_info}${BLUE}\$ ${DEFAULT}"
+    PS1="${status_text}${git_info}${ucolor}\u@${ucolor}\h${WHITE}:${BLUE}\w\$ ${DEFAULT}"
     PS2="${ucolor}# ${WHITE}:${WHITE}\W${WHITE}\$ ${DEFAULT}"
 }
 
@@ -61,23 +61,3 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=always'
     alias egrep='egrep --color=always'
 fi
-
-export SUDO_ASKPASS=/usr/bin/ssh-askpass
-
-if [ -x /usr/bin/wsl2-ssh-agent ]; then
-    eval "$(/usr/bin/wsl2-ssh-agent)"
-fi
-
-if [ -f /usr/share/fzf/key-bindings.bash ]; then
-    . /usr/share/fzf/key-bindings.bash
-fi
-
-if [ -f /usr/share/fzf/completion.bash ]; then
-    . /usr/share/fzf/completion.bash
-fi
-
-if [ -f /usr/share/fzf/key-bindings.bash ]; then
-    . /usr/share/fzf/key-bindings.bash
-fi
-
-export FZF_CTRL_R_OPTS="--sort --exact"
