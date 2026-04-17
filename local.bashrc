@@ -1,31 +1,31 @@
 # Enable custom colors
-BLACK='\[\033[0;30m\]'
-RED='\[\033[0;31m\]'
-GREEN='\[\033[0;32m\]'
-YELLOW='\[\033[0;33m\]'
-BLUE='\[\033[0;34m\]'
-MAGENTA='\[\033[0;35m\]'
-CYAN='\[\033[0;36m\]'
-GRAY='\[\033[0;37m\]'
-LIGHTGRAY='\[\033[1;30m\]'
-LIGHTRED='\[\033[1;31m\]'
-LIGHTGREEN='\[\033[1;32m\]'
-LIGHTYELLOW='\[\033[1;33m\]'
-LIGHTBLUE='\[\033[1;34m\]'
-LIGHTMAGENTA='\[\033[1;35m\]'
-LIGHTCYAN='\[\033[1;36m\]'
-WHITE='\[\033[1;37m\]'
-ORANGE='\[\033[38;5;208m\]'
-PINK='\[\033[38;5;213m\]'
-PURPLE='\[\033[38;5;141m\]'
-TEAL='\[\033[38;5;37m\]'
-GOLD='\[\033[38;5;220m\]'
-DEFAULT='\[\033[0m\]'
+export BLACK='\033[0;30m'
+export RED='\033[0;31m'
+export GREEN='\033[0;32m'
+export YELLOW='\033[0;33m'
+export BLUE='\033[0;34m'
+export MAGENTA='\033[0;35m'
+export CYAN='\033[0;36m'
+export GRAY='\033[0;37m'
+export LIGHTGRAY='\033[1;30m'
+export LIGHTRED='\033[1;31m'
+export LIGHTGREEN='\033[1;32m'
+export LIGHTYELLOW='\033[1;33m'
+export LIGHTBLUE='\033[1;34m'
+export LIGHTMAGENTA='\033[1;35m'
+export LIGHTCYAN='\033[1;36m'
+export WHITE='\033[1;37m'
+export ORANGE='\033[38;5;208m'
+export PINK='\033[38;5;213m'
+export PURPLE='\033[38;5;141m'
+export TEAL='\033[38;5;37m'
+export GOLD='\033[38;5;220m'
+export DEFAULT='\033[0m'
 
 if [ "$USER" = "root" ]; then
-    ucolor="$LIGHTRED"
+    ucolor="\[${LIGHTRED}\]"
 else
-    ucolor="$LIGHTGREEN"
+    ucolor="\[${LIGHTGREEN}\]"
 fi
 
 checked='✓'
@@ -60,25 +60,25 @@ __prompt_command() {
     local branch
 
     if [ "$exit_code" -eq 0 ]; then
-        status_icon="${LIGHTGREEN}${checked}"
+        status_icon="\[${LIGHTGREEN}\]${checked}"
     else
-        status_icon="${LIGHTRED}${ballot}"
+        status_icon="\[${LIGHTRED}\]${ballot}"
     fi
 
-    status_text="${exit_code} ${status_icon}${WHITE}|"
+    status_text="${exit_code} ${status_icon}\[${WHITE}\]|"
 
     branch="$(__parse_git_branch)"
     if [ -n "$branch" ]; then
-        git_info="${LIGHTYELLOW}@${branch}"
+        git_info="\[${LIGHTYELLOW}\]@${branch}"
     fi
 
     venv="$(__python_venv_info)"
     if [ -n "$venv" ]; then
-        venv_info=" ${PURPLE}[${venv}]"
+        venv_info=" \[${PURPLE}\][${venv}]"
     fi
 
-    PS1="${status_text} ${ucolor}\u@\h${WHITE}${venv_info} ${LIGHTBLUE}\w${git_info}${WHITE}: ${DEFAULT}"
-    PS2="${ucolor}# ${WHITE}:${WHITE}\W${WHITE}\$ ${DEFAULT}"
+    PS1="${status_text} ${ucolor}\u@\h\[${WHITE}\]${venv_info} \[${LIGHTBLUE}\]\w${git_info}\[${WHITE}\]: \[${DEFAULT}\]"
+    PS2="${ucolor}# \[${WHITE}\]:\W\$ \[${DEFAULT}\]"
 }
 
 PROMPT_COMMAND=__prompt_command

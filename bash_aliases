@@ -14,6 +14,8 @@ alias lsportsg='lsof -Pan -i tcp -i udp | grep'
 alias tulpen="ss -tulpen"
 alias dmesg='sudo dmesg -T'
 
+alias venv='if [[ -d .venv ]]; then . .venv/bin/activate; else echo -e "$REDNo .venv folder found$DEFAULT"; fi'
+
 alias ls='/bin/ls --color=always'
 alias l='ls -lh'
 alias la='ls -la'
