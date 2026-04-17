@@ -91,3 +91,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=always'
     alias egrep='egrep --color=always'
 fi
+
+if [ -d $HOME/.local/.bashscripts]; then
+    export PATH="$PATH:$HOME/.local/.bashscripts"
+fi
