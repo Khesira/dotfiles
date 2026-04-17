@@ -92,6 +92,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=always'
 fi
 
-if [ -d $HOME/.local/.bashscripts ]; then
-    export PATH="$PATH:$HOME/.local/.bashscripts"
+if [ -d $HOME/.local/bashscripts ]; then
+    export PATH="$PATH:$HOME/.local/bashscripts"
 fi
