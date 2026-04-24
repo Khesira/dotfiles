@@ -12,7 +12,7 @@ alias psg='ps aux | grep'
 alias lsports='lsof -Pan -i tcp -i udp'
 alias lsportsg='lsof -Pan -i tcp -i udp | grep'
 alias tulpen="ss -tulpen"
-alias dmesg='sudo dmesg -T'
+alias dmesg='dmesg -T'
 
 alias venv='if [[ -f .venv/bin/activate ]]; then . .venv/bin/activate; else echo -e "${RED} No venv found${DEFAULT}"; fi'
 
